@@ -1,5 +1,5 @@
-# Squeezelite-ESP32 Installer
+# LMS-ESP32 Installer
 
-This is a demo installer website for [Squeezelite-ESP32](https://github.com/sle118/squeezelite-esp32).
+This repo contains the content for the ngix docker serving [firmware.antonsmindstorms.com](https://firmware.antonsmindstorms.com).
 
-[Visit installer website](https://paulusschoutsen.nl/squeezelite-esp32-install/)
+It is based on [Squeezelite-ESP32](https://github.com/sle118/squeezelite-esp32).
