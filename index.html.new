@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>LMS-ESP32 Installer</title>
+    <meta
+      name="description"
+      content="Easily allow users to install the LMS-ESP32 module with different firmware versions."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Load ESP Web Tools -->
+    <!-- <script type="module" src="https://unpkg.com/esp-web-tools@8.0.1/dist/web/install-button.js?module"></script> -->
+    <script type="module" src="./install-button.js"></script>
+  </head>
+
+  <body>
+    <div class="content">
+      <h1>LMS-ESP32 Installer</h1>
+      <p>Select your firmware:</p>
+
+      <ul class="radios">
+        <li>
+	  <label>
+            <input type="radio" name="type" value="MicroBlocks_346_st7789" />
+            MicroBlocks v346 for LMS-ESP32 with LVGL for LMS-TFT (20250912)
+          </label>
+	</li>
+	<li>
+          <label>
+            <input type="radio" name="type" value="MicroPython_1.25" />
+            MicroPython v1.25.0 lvgl9.3+uartremote+pupremote (20250830)
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="type" value="bluepad32_UartRemote" />
+            BluePad32 UartRemote for LMS MicroPython projects (20250104)
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" name="type" value="bluepad32_lpf2" />
+            BluePad32 LPF2 for Spike3 and Pybricks (20250302)
+          </label>
+        </li>
+      </ul>
+
+      <p class="button-row" align="center">
+        <esp-web-install-button class="invisible"></esp-web-install-button>
+      </p>
+
+      <p>
+        For examples of the BluePad32 or PUPRemote, see
+        <a href="https://github.com/antonvh/PUPRemote">PUPRemote GitHub</a>.
+      </p>
+      <p>
+        For source code of the BluePad32 firmware see
+        <a href="https://github.com/ste7anste7an/bluepad32_arduino">
+          Bluepad32 GitHub
+        </a>.
+      </p>
+
+      <p>
+        The following firmware supports LVGL in MicroPython and works on both
+        versions of the LMS-ESP32 v1 and v2:
+      </p>
+      <ul class="radios">
+        <li>
+          <label>
+            <input type="radio" name="type" value="MicroPython" />
+            MicroPython v1.19.1 with lvgl+ulab+uartremote+pupremote (20240825)
+          </label>
+        </li>
+        <li>
+          <p>
+            Experimental: MicroBlocks firmware for LMS-ESP32. See
+            <a href="https://microblocks.fun/">MicroBlocks website</a> for more
+            information and
+            <a href="https://github.com/ste7anste7an/micropup">
+              MicroPup GitHub
+            </a>
+            for the MicroPUP library to communicate with LEGO hubs.
+          </p>
+          <label>
+            <input type="radio" name="type" value="MicroBlocks" />
+            MicroBlocks v339 for LMS-ESP32 with LVGL (20250712)
+          </label>
+        </li>
+      </ul>
+
+      <div class="footer">
+        <a href="https://github.com/antonvh/LMS-uart-esp">LMS-ESP32</a> —
+        Installer powered by
+        <a href="https://esphome.github.io/esp-web-tools/">ESP Web Tools</a>.
+      </div>
+    </div>
+
+    <script>
+      document
+        .querySelectorAll('input[name="type"]')
+        .forEach((radio) =>
+          radio.addEventListener("change", () => {
+            const button = document.querySelector("esp-web-install-button");
+            button.manifest = `./manifest_${radio.value}.json`;
+            button.classList.remove("invisible");
+          })
+        );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "MicroBlocks v346 for LMS-ESP32v1 and v2 with LVGL (LMS-TFT)",
+  "version": "v339",
+  "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [{ "path": "firmware/firmware_v346_lms-esp32_st7789_lvgl_20250903_all.bin", "offset": 0 }]
+    }
+  ]
+}

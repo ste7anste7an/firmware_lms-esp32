@@ -1,0 +1,11 @@
+{
+  "name": "MicroPython version 1.25.0 with lvgl9.3+ulab+uartremote+pupremote libraries",
+  "version": "1.25",
+  "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [{ "path": "firmware/micropython_1.25_lms_lvgl_20250830.bin", "offset": 4096 }]
+    }
+  ]
+}
