@@ -17,7 +17,17 @@
   <body>
     <div class="content">
       <h1>LMS-ESP32 Installer</h1>
-    
+    <script>
+      document
+        .querySelectorAll('input[name="type"]')
+        .forEach((radio) =>
+          radio.addEventListener("change", () => {
+            const button = document.querySelector("esp-web-install-button");
+            button.manifest = `./manifest_${radio.value}.json`;
+            button.classList.remove("invisible");
+          })
+        );
+    </script>
       <p class="button-row" align="center">
         <esp-web-install-button class="invisible"></esp-web-install-button>
       </p>
@@ -28,14 +38,14 @@
         <ul class="radios">
           <li>
             <label>
-              <input type="radio" name="type" value="MicroBlocks_ft7789" />
-              MicroBlocks v346 for LMS-ESP32 with LVGL for LMS-TFT (20250903)
+              <input type="radio" name="type" value="MicroBlocks_st7789" />
+              MicroBlocks v370 for LMS-ESP32 with LVGL for LMS-TFT (20251229)
             </label>
           </li>
           <li>
             <label>
               <input type="radio" name="type" value="MicroBlocks_ili9341" />
-              MicroBlocks v346 for LMS-ESP32 with LVGL for ILI9341 (20250903)
+              MicroBlocks v370 for LMS-ESP32 with LVGL for ILI9341 (20251229)
             </label>
           </li>
         </ul>
@@ -55,8 +65,13 @@
         <ul class="radios">
           <li>
             <label>
+              <input type="radio" name="type" value="MicroPython_1.27" />
+              (beta) MicroPython v1.27 with lvgl 9.3 + lms libraries (20251228)
+            </label>
+          </li>
+            <label>
               <input type="radio" name="type" value="MicroPython_1.25" />
-              MicroPython v1.25.0 with lvgl 9.3+uartremote+pupremote (20250830)
+              MicroPython v1.25.0 with lvgl 9.3+uartremote+pupremote (20250921)
             </label>
           </li>
           <li>
@@ -107,16 +122,6 @@
         <a href="https://esphome.github.io/esp-web-tools/">ESP Web Tools</a>.
       </div>
     </div>
-<script>
-      document
-        .querySelectorAll('input[name="type"]')
-        .forEach((radio) =>
-          radio.addEventListener("change", () => {
-            const button = document.querySelector("esp-web-install-button");
-            button.manifest = `./manifest_${radio.value}.json`;
-            button.classList.remove("invisible");
-          })
-        );
-    </script>
+
   </body>
 </html>

@@ -1,0 +1,11 @@
+{
+  "name": "MicroPython version 1.27 with lvgl9.3+uartremote+pupremote libraries (20251228)",
+  "version": "1.27",
+  "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [{ "path": "firmware/micropython_1.27_lms_lvgl_nospiram_20251228.bin", "offset": 0 }]
+    }
+  ]
+}

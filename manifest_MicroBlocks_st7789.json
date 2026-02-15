@@ -1,0 +1,11 @@
+{
+  "name": "MicroBlocks v370 for LMS-ESP32v1 and v2 with LVGL (LMS-TFT)",
+  "version": "v370",
+  "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [{ "path": "firmware/firmware_370_lms-esp32_st7789_lvgl_20260104_all.bin", "offset": 0 }]
+    }
+  ]
+}

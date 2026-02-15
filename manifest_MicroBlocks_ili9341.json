@@ -1,11 +1,11 @@
 {
-  "name": "MicroBlocks v346 for LMS-ESP32v1 and v2 with LVGL (ILI9341)",
-  "version": "v346",
+  "name": "MicroBlocks v370 for LMS-ESP32v1 and v2 with LVGL (ILI9341)",
+  "version": "v370",
   "home_assistant_domain": "slim_player",
   "builds": [
     {
       "chipFamily": "ESP32",
-      "parts": [{ "path": "firmware/firmware_v346_lms-esp32_ili9341_lvgl_20250903_all.bin", "offset": 0 }]
+      "parts": [{ "path": "firmware/firmware_370_lms-esp32_ili9341_lvgl_20251229_all.bin", "offset": 0 }]
     }
   ]
 }
