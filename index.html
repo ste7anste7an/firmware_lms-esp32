@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -10,100 +10,273 @@
     <meta name="viewport" content="width=device-width" />
     <meta name="color-scheme" content="dark light" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Teko:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="styles.css" />
     <script type="module" src="./install-button.js"></script>
   </head>
 
   <body>
     <div class="content">
-      <h1>LMS-ESP32 Installer</h1>
+      <header class="masthead">
+        <div class="logo-mark">
+          <img
+            src="./Head%20only%20round%20500.svg"
+            alt="Antons Mindstorms logo"
+          />
+        </div>
+        <div>
+          <p class="brand-kicker">Antons Mindstorms</p>
+          <h1>LMS-ESP32 Installer</h1>
+        </div>
+      </header>
 
-      <p class="button-row" align="center">
-        <esp-web-install-button class="invisible"></esp-web-install-button>
+      <p class="lead">
+        Choose the firmware that matches your project and flash directly from
+        the table.
       </p>
 
-
-      <div class="section">
-        <h2>MicroBlocks Firmware</h2>
-        <ul class="radios">
-          <li>
-            <label>
-              <input type="radio" name="type" value="MicroBlocks_st7789" />
-              MicroBlocks v370 for LMS-ESP32 with LVGL for LMS-TFT (20251229)
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="radio" name="type" value="MicroBlocks_ili9341" />
-              MicroBlocks v370 for LMS-ESP32 with LVGL for ILI9341 (20251229)
-            </label>
-          </li>
-        </ul>
-       <p>
-          See
-          <a href="https://microblocks.fun/">MicroBlocks website</a> for more
-          information and
-          <a href="https://github.com/ste7anste7an/micropup">
-            MicroPup GitHub
-          </a>
-          for the MicroPUP library to communicate with LEGO hubs.
-        </p>
-      </div>
-
-      <div class="section">
-        <h2>MicroPython Firmware</h2>
-        <ul class="radios">
-          <li>
-            <label>
-              <input type="radio" name="type" value="MicroPython_1.27" />
-              (beta) MicroPython v1.27 with lvgl 9.3 + lms libraries (20251228)
-            </label>
-          </li>
-            <label>
-              <input type="radio" name="type" value="MicroPython_1.25" />
-              MicroPython v1.25.0 with lvgl 9.3+uartremote+pupremote (20250921)
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="radio" name="type" value="MicroPython_1.24" />
-              Legacy MicroPython v1.24.1 with uartremote+pupremote (20250617)
-            </label>
-          </li>          <li>
-            <label>
-              <input type="radio" name="type" value="MicroPython" />
-              Legacy MicroPython v1.19.1 with lvgl 8.3 +ulab+uartremote+pupremote (20240825)
-            </label>
-          </li>
-        </ul>
-      </div>
-
-      <div class="section">
-        <h2>BluePad Firmware</h2>
-        <ul class="radios">
-          <li>
-            <label>
-              <input type="radio" name="type" value="bluepad32_UartRemote" />
-              BluePad32 UartRemote for LMS MicroPython projects (20250104)
-            </label>
-          </li>
-          <li>
-            <label>
-              <input type="radio" name="type" value="bluepad32_lpf2" />
-              BluePad32 LPF2 for Spike3 and Pybricks (20250302)
-            </label>
-          </li>
-        </ul>
-        <p>
-          For examples of BluePad32 or PUPRemote, see
-          <a href="https://github.com/antonvh/PUPRemote">PUPRemote GitHub</a>.
-        </p>
-        <p>
-          For source code of the BluePad32 firmware see
-          <a href="https://github.com/ste7anste7an/bluepad32_arduino">
-            Bluepad32 GitHub
-          </a>.
-        </p>
+      <div class="section firmware-section">
+        <h2>Available Firmware</h2>
+        <div class="table-wrap">
+          <table class="firmware-table">
+            <thead>
+              <tr>
+                <th>Platform</th>
+                <th>Version</th>
+                <th>Included libraries</th>
+                <th>Firmware date</th>
+                <th>State</th>
+                <th>Target hub</th>
+                <th>Flash</th>
+                <th>Documentation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MicroBlocks</td>
+                <td>v370</td>
+                <td>lvgl, lms-tft profile</td>
+                <td>20251229</td>
+                <td>advised</td>
+                <td>LMS-TFT + Pybricks</td>
+                <td>
+                  <esp-web-install-button
+                    manifest="./manifest_MicroBlocks_st7789.json"
+                  >
+                    <button slot="activate" class="btn btn-primary">
+                      Flash firmware
+                    </button>
+                  </esp-web-install-button>
+                </td>
+                <td>
+                  <a
+                    class="btn btn-secondary"
+                    href="https://www.antonsmindstorms.com/docs/lvgl-for-microblocks/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Documentation
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>MicroBlocks</td>
+                <td>v370</td>
+                <td>lvgl, ili9341 profile</td>
+                <td>20251229</td>
+                <td>advised</td>
+                <td>ILI9341 display + Pybricks</td>
+                <td>
+                  <esp-web-install-button
+                    manifest="./manifest_MicroBlocks_ili9341.json"
+                  >
+                    <button slot="activate" class="btn btn-primary">
+                      Flash firmware
+                    </button>
+                  </esp-web-install-button>
+                </td>
+                <td>
+                  <a
+                    class="btn btn-secondary"
+                    href="https://www.antonsmindstorms.com/docs/micropup-documentation/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Documentation
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>MicroPython</td>
+                <td>v1.27</td>
+                <td>lvgl 9.3, lms libraries</td>
+                <td>20251228</td>
+                <td>beta</td>
+                <td>General LMS projects</td>
+                <td>
+                  <esp-web-install-button
+                    manifest="./manifest_MicroPython_1.27.json"
+                  >
+                    <button slot="activate" class="btn btn-primary">
+                      Flash firmware
+                    </button>
+                  </esp-web-install-button>
+                </td>
+                <td>
+                  <a
+                    class="btn btn-secondary"
+                    href="https://www.antonsmindstorms.com/docs/micropython-firmware-for-lms-esp32-2/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Documentation
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>MicroPython</td>
+                <td>v1.25.0</td>
+                <td>lvgl 9.3, uartremote, pupremote</td>
+                <td>20250921</td>
+                <td>advised</td>
+                <td>General LMS projects</td>
+                <td>
+                  <esp-web-install-button
+                    manifest="./manifest_MicroPython_1.25.json"
+                  >
+                    <button slot="activate" class="btn btn-primary">
+                      Flash firmware
+                    </button>
+                  </esp-web-install-button>
+                </td>
+                <td>
+                  <a
+                    class="btn btn-secondary"
+                    href="https://www.antonsmindstorms.com/docs/micropython-firmware-for-lms-esp32-2/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Documentation
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>MicroPython</td>
+                <td>v1.24.1</td>
+                <td>uartremote, pupremote</td>
+                <td>20250617</td>
+                <td>legacy</td>
+                <td>General LMS projects</td>
+                <td>
+                  <esp-web-install-button
+                    manifest="./manifest_MicroPython_1.24.json"
+                  >
+                    <button slot="activate" class="btn btn-primary">
+                      Flash firmware
+                    </button>
+                  </esp-web-install-button>
+                </td>
+                <td>
+                  <a
+                    class="btn btn-secondary"
+                    href="https://www.antonsmindstorms.com/docs/micropython-firmware-for-lms-esp32-2/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Documentation
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>MicroPython</td>
+                <td>v1.19.1</td>
+                <td>lvgl 8.3, ulab, uartremote, pupremote</td>
+                <td>20240825</td>
+                <td>legacy</td>
+                <td>LMS-ESP32v1 examples and projects with i2s microphone</td>
+                <td>
+                  <esp-web-install-button
+                    manifest="./manifest_MicroPython.json"
+                  >
+                    <button slot="activate" class="btn btn-primary">
+                      Flash firmware
+                    </button>
+                  </esp-web-install-button>
+                </td>
+                <td>
+                  <a
+                    class="btn btn-secondary"
+                    href="https://www.antonsmindstorms.com/docs/micropython-firmware-for-lms-esp32-2/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Documentation
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>BluePad</td>
+                <td>UartRemote</td>
+                <td>bluepad32, uartremote</td>
+                <td>20250104</td>
+                <td>advised</td>
+                <td>EV3, Inventor and other UART platforms</td>
+                <td>
+                  <esp-web-install-button
+                    manifest="./manifest_bluepad32_UartRemote.json"
+                  >
+                    <button slot="activate" class="btn btn-primary">
+                      Flash firmware
+                    </button>
+                  </esp-web-install-button>
+                </td>
+                <td>
+                  <a
+                    class="btn btn-secondary"
+                    href="https://www.antonsmindstorms.com/2025/04/25/troubleshooting-lms-esp32v2-gamepad-connection-with-spike-prime-and-bluepad/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Documentation
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>BluePad</td>
+                <td>LPF2</td>
+                <td>bluepad32, lpf2 bridge</td>
+                <td>20250302</td>
+                <td>advised</td>
+                <td>LEGO Spike 3 and Pybricks</td>
+                <td>
+                  <esp-web-install-button
+                    manifest="./manifest_bluepad32_lpf2.json"
+                  >
+                    <button slot="activate" class="btn btn-primary">
+                      Flash firmware
+                    </button>
+                  </esp-web-install-button>
+                </td>
+                <td>
+                  <a
+                    class="btn btn-secondary"
+                    href="https://www.antonsmindstorms.com/2025/04/25/troubleshooting-lms-esp32v2-gamepad-connection-with-spike-prime-and-bluepad/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Documentation
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="footer">
@@ -113,15 +286,84 @@
       </div>
     </div>
     <script>
-      document
-        .querySelectorAll('input[name="type"]')
-        .forEach((radio) =>
-          radio.addEventListener("change", () => {
-            const button = document.querySelector("esp-web-install-button");
-            button.manifest = `./manifest_${radio.value}.json`;
-            button.classList.remove("invisible");
-          })
-        );
+      function getHostChain(node) {
+        const chain = [];
+        let root = node && node.getRootNode ? node.getRootNode() : null;
+        while (root && root.host) {
+          chain.push(root.host);
+          root = root.host.getRootNode ? root.host.getRootNode() : null;
+        }
+        return chain;
+      }
+
+      function closeNearestDialog(startNode) {
+        if (!startNode) {
+          return;
+        }
+        const dialog = startNode.closest("ew-dialog, md-dialog, dialog");
+        if (dialog && typeof dialog.close === "function") {
+          dialog.close();
+          return;
+        }
+        const hosts = getHostChain(startNode);
+        for (const host of hosts) {
+          if (typeof host.close === "function") {
+            host.close();
+            return;
+          }
+          const hostDialog = host.shadowRoot
+            ? host.shadowRoot.querySelector("ew-dialog, md-dialog, dialog")
+            : null;
+          if (hostDialog && typeof hostDialog.close === "function") {
+            hostDialog.close();
+            return;
+          }
+        }
+      }
+
+      function patchInstallCompleteActions(root) {
+        const buttons = root.querySelectorAll("button, ew-text-button");
+        buttons.forEach((button) => {
+          const label = (button.textContent || "").trim();
+          if (label !== "Next") {
+            return;
+          }
+          button.textContent = "Flash another";
+          const container = button.parentElement;
+          if (!container || container.querySelector("[data-done-button]")) {
+            return;
+          }
+          const done = button.cloneNode(true);
+          done.textContent = "Done";
+          done.setAttribute("data-done-button", "true");
+          done.addEventListener("click", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            closeNearestDialog(done);
+          });
+          container.appendChild(done);
+        });
+      }
+
+      const dialogObserver = new MutationObserver(() => {
+        document
+          .querySelectorAll("ewt-install-dialog")
+          .forEach((installDialog) => {
+            if (!installDialog.shadowRoot) {
+              return;
+            }
+            patchInstallCompleteActions(installDialog.shadowRoot);
+            installDialog.shadowRoot
+              .querySelectorAll("*")
+              .forEach((element) => {
+                if (element.shadowRoot) {
+                  patchInstallCompleteActions(element.shadowRoot);
+                }
+              });
+          });
+      });
+
+      dialogObserver.observe(document.body, { childList: true, subtree: true });
     </script>
   </body>
 </html>

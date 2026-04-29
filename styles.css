@@ -1,90 +1,202 @@
+:root {
+  --brand-red: #e31837;
+  --brand-red-deep: #bf102c;
+  --brand-ink: #2f2f34;
+  --surface: #ffffff;
+  --site-bg: #efefef;
+  --line: #dddddd;
+}
+
 body {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Ubuntu, sans-serif;
-  padding: 0;
   margin: 0;
-  line-height: 1.4;
+  color: var(--brand-ink);
+  line-height: 1.5;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  background: var(--site-bg);
 }
 
 .content {
-  max-width: 600px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 12px;
+  padding: 24px 16px 38px;
+}
+
+.masthead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-mark {
+  width: 66px;
+  height: 66px;
+  flex: 0 0 auto;
+}
+
+.logo-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.brand-kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Teko", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1;
 }
 
 h2 {
-  margin-top: 2em;
+  font-family: "Teko", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+  font-weight: 500;
 }
 
-h3 {
-  margin-top: 1.5em;
+.lead {
+  margin-top: 12px;
+  max-width: 760px;
+  color: #555;
 }
 
-a {
-  color: #03a9f4;
+.section {
+  margin-top: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 18px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
 }
 
-.invisible {
-  visibility: hidden;
+.section h2 {
+  margin: 0 0 12px;
 }
 
-.hidden {
-  display: none;
+.table-wrap {
+  overflow-x: auto;
+}
+
+.firmware-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 980px;
+  background: var(--surface);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.firmware-table th,
+.firmware-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+.firmware-table th {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #666;
+  background: #f4f4f4;
+}
+
+.firmware-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 2px;
+  padding: 9px 14px;
+  border: 1px solid transparent;
+  font-size: 0.86rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+  transform: none;
+}
+
+.btn-primary {
+  background: var(--brand-red);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--brand-red-deep);
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--brand-red);
+  border-color: var(--brand-red);
+}
+
+.btn-secondary:hover {
+  background: #fff3f6;
 }
 
 esp-web-install-button[install-unsupported] {
   visibility: inherit;
 }
 
-.content pre {
-  max-width: 100%;
-  overflow-y: scroll;
-}
-
 .footer {
-  margin-top: 24px;
-  border-top: 1px solid #ccc;
-  padding-top: 24px;
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
   text-align: center;
+  color: #555;
 }
 
-.footer .initiative {
-  font-style: italic;
-  margin-top: 16px;
+.footer a {
+  color: var(--brand-red);
 }
 
-table {
-  border-spacing: 0;
-}
-
-td {
-  padding: 8px;
-  border-bottom: 1px solid #ccc;
-}
-
-.radios li {
-  list-style: none;
-  line-height: 2em;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #333;
-    color: #fff;
+@media (max-width: 768px) {
+  .content {
+    padding-top: 18px;
   }
-  a {
-    color: #58a6ff;
+
+  .masthead {
+    align-items: flex-start;
   }
-}
 
-.section {
-  margin-top: 2em;
-  padding: 1em;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
+  .logo-mark {
+    width: 58px;
+    height: 58px;
+  }
 
-.section h2 {
-  font-size: 1.4em;
-  margin-bottom: 0.5em;
+  .section {
+    padding: 12px;
+  }
+
+  .firmware-table th,
+  .firmware-table td {
+    padding: 8px 9px;
+    font-size: 0.86rem;
+  }
+
+  .btn {
+    padding: 8px 11px;
+    font-size: 0.8rem;
+  }
 }
