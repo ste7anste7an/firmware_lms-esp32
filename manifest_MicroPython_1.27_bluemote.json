@@ -1,0 +1,11 @@
+{
+  "name": "MicroPython version 1.27 BlueMote remote control (20260821)",
+  "version": "1.27",
+  "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [{ "path": "firmware/micropython_1.27_bluemote_ur_rc_20260821.bin", "offset": 0 }]
+    }
+  ]
+}

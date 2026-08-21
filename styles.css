@@ -113,6 +113,14 @@ h2 {
   background: #f4f4f4;
 }
 
+.firmware-table tbody tr {
+  color: #888;
+}
+
+.firmware-table tbody tr.advised {
+  color: #000;
+}
+
 .firmware-table tbody tr:hover {
   background: #fafafa;
 }
