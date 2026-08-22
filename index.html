@@ -19,6 +19,11 @@
 
     <link rel="stylesheet" href="styles.css?v=advised-rows" />
     <script type="module" src="./install-button.js"></script>
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="bb4cafa9-772f-43ed-87fe-74d8c9735186"
+    ></script>
   </head>
 
   <body>
@@ -63,7 +68,7 @@
             <tbody>
               <tr class="advised">
                 <td>MicroBlocks</td>
-                <td>v370</td>
+                <td>v370 (ST7789)</td>
                 <td>lvgl, lms-tft profile</td>
                 <td>20251229</td>
                 <td>advised</td>
@@ -90,7 +95,7 @@
               </tr>
               <tr class="advised">
                 <td>MicroBlocks</td>
-                <td>v370</td>
+                <td>v370 (ILI9341)</td>
                 <td>lvgl, ili9341 profile</td>
                 <td>20251229</td>
                 <td>advised</td>
@@ -147,7 +152,7 @@
               </tr>
               <tr class="advised">
                 <td>MicroPython</td>
-                <td>v1.27</td>
+                <td>v1.27 (BlueMote)</td>
                 <td>
                   lvgl 9.3, uartremote, uremote, pupremote, lms_esp32, lpf2,
                   ctrl_plus, bt, servo, np_animation, pyhuskylens, serialtalk
@@ -261,7 +266,7 @@
                 <td>BluePad</td>
                 <td>uRemote</td>
                 <td>bluepad32, uRemote</td>
-                <td>20260801
+                <td>20260801</td>
                 <td>advised</td>
                 <td>Pybricks</td>
                 <td>
@@ -379,6 +384,17 @@
       </div>
     </div>
     <script>
+      document.querySelectorAll(".firmware-table tbody tr").forEach((row) => {
+        const platform = row.cells[0]?.textContent.trim();
+        const version = row.cells[1]?.textContent.trim();
+        const button = row.querySelector('button[slot="activate"]');
+        if (!platform || !version || !button) {
+          return;
+        }
+        button.setAttribute("data-umami-event", `${platform}, ${version}`);
+        button.setAttribute("data-umami-event-type", "firmware");
+      });
+
       function getHostChain(node) {
         const chain = [];
         let root = node && node.getRootNode ? node.getRootNode() : null;
