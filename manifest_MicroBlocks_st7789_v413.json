@@ -5,7 +5,7 @@
   "builds": [
     {
       "chipFamily": "ESP32",
-      "parts": [{ "path": "firmware/firmware_v413_esp32_tft_ft7789_20260904_all.bin", "offset": 0 }]
+      "parts": [{ "path": "firmware/firmware_v413_esp32_tft_ft7789_20260906_all.bin", "offset": 0 }]
     }
   ]
 }
