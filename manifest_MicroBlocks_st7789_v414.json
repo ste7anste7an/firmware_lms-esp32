@@ -1,0 +1,11 @@
+{
+  "name": "MicroBlocks v414 for LMS-ESP32v1 and v2 with LVGL (LMS-TFT)",
+  "version": "v414",
+  "home_assistant_domain": "slim_player",
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [{ "path": "firmware/firmware_v414_esp32_tft_ft7789_20260912_all.bin", "offset": 0 }]
+    }
+  ]
+}
